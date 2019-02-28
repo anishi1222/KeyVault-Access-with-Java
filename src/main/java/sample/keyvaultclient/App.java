@@ -12,7 +12,7 @@ public class App {
 
 	public static void main(String[] args) {
 		if(args.length!=1) {
-			System.out.println("java -jar keyvaultclient.jar {keu for secret stored in Key Vault container}");
+			System.out.println("java -jar keyvaultclient.jar {key for secret stored in Key Vault container}");
 			System.exit(1);
 		}
 
