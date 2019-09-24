@@ -18,7 +18,7 @@ Refer to https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
 - Choose Key Vault in All Service or search for "key vault" in "Create a resource" and create with information added.
 - Take a note of DNS name. This URL is required to connect Key Vault.
 - Access Policies
-  - Click "Access Policies" in SEttings, and click "Add new".
+  - Click "Access Policies" in Settings, and click "Add new".
   - Click "OK" after the following items are set.
     - Select Principal : The application you registered.
     - Secret permissions : Select "Get" in SEcret Management Operations 
@@ -31,4 +31,3 @@ Refer to https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
 ## Others
 - Java Code
   - You have to implement `KeyVaultCredentials#doAuthenticate()` since this method is abstract.
-  
