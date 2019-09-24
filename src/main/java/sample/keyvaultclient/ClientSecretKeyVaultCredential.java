@@ -27,7 +27,7 @@ public class ClientSecretKeyVaultCredential extends KeyVaultCredentials {
 		return token.getAccessToken();
 	}
 
-	private static AuthenticationResult getAccessTokenFromClientCredentials(String authorization, String resource, String clientId, String clientKey) {
+	private AuthenticationResult getAccessTokenFromClientCredentials(String authorization, String resource, String clientId, String clientKey) {
 		AuthenticationContext context = null;
 		AuthenticationResult result = null;
 		ExecutorService service = null;
