@@ -7,7 +7,7 @@ Refer to https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
 ## How to configure application to access key vault
 - Application registration
   - Azure Active Directory > Manage > App registrations
-  - Click "New application registration" and fill out the form (Correct Sign-on URL is not required).
+  - Click "New application registration" and fill out the form (Redirect URL is not required).
   - Take a note of Application (client) ID after registration is completed. This Application (client) ID is required to connect to Key Vault.
 - Password
   - Azure Active Directory > Manage > App registrations > Manage > "Client secrets" in Certificates & secrets section.
