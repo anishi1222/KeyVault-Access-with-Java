@@ -1,4 +1,4 @@
-# KeyVault-Access-with-Java
+# KeyVault-Access-with-Java (Previous SDK)
 Access Azure Key Vault through Java
 
 ## What is Azure Key Vault?
