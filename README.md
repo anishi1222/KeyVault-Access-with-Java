@@ -1,4 +1,4 @@
-# KeyVault-Access-with-Java (Previous SDK)
+# KeyVault-Access-with-Java (Reactor based)
 Access Azure Key Vault through Java
 
 ## What is Azure Key Vault?
@@ -7,7 +7,7 @@ Refer to https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
 ## How to configure application to access key vault
 - Application registration
   - Azure Active Directory > Manage > App registrations
-  - Click "New application registration" and fill out the form (Correct Sign-on URL is not required).
+  - Click "New application registration" and fill out the form (Redirect URL is not required).
   - Take a note of Application (client) ID after registration is completed. This Application (client) ID is required to connect to Key Vault.
 - Password
   - Azure Active Directory > Manage > App registrations > Manage > "Client secrets" in Certificates & secrets section.
@@ -30,4 +30,4 @@ Refer to https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
 
 ## Others
 - Java Code
-  - You have to implement `KeyVaultCredentials#doAuthenticate()` since this method is abstract.
+  - Please refer to [Azure Key Vault Key client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-keyvault-keys#azure-key-vault-key-client-library-for-java)
