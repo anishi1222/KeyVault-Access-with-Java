@@ -1,4 +1,4 @@
-# KeyVault-Access-with-Java
+# KeyVault-Access-with-Java (Reactor based)
 Access Azure Key Vault through Java
 
 ## What is Azure Key Vault?
@@ -30,4 +30,4 @@ Refer to https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
 
 ## Others
 - Java Code
-  - You have to implement `KeyVaultCredentials#doAuthenticate()` since this method is abstract.
+  - Please refer to [Azure Key Vault Key client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-keyvault-keys#azure-key-vault-key-client-library-for-java)
