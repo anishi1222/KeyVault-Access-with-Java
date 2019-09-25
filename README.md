@@ -1,4 +1,4 @@
-# KeyVault-Access-with-Java (Reactor based)
+# KeyVault-Access-with-Java
 Access Azure Key Vault through Java
 
 ## What is Azure Key Vault?
