@@ -20,6 +20,14 @@ public class App {
     static final String KEY_IDENTIFIER = "https://{KeyContainer}.vault.azure.net/keys/{KeyName}/{KeyVersion}";
     static String textToEncrypt = "This is a test";
 
+    static byte[] toUtf16Bytes(String value) {
+        return value.getBytes(StandardCharsets.UTF_16);
+    }
+
+    static String fromUtf16Bytes(byte[] value) {
+        return new String(value, StandardCharsets.UTF_16);
+    }
+
     public static void main(String[] args) {
 
         // authenticate with client secret,
@@ -36,12 +44,12 @@ public class App {
                 .buildClient();
 
         log.info("[textToEncrypt]" + textToEncrypt);
-        byte[] byteText = textToEncrypt.getBytes(StandardCharsets.UTF_16);
+        byte[] byteText = toUtf16Bytes(textToEncrypt);
         EncryptResult encryptResult1 = cryptographyClient.encrypt(EncryptionAlgorithm.RSA_OAEP, byteText);
-        log.info("[Encrypted]" + new String(encryptResult1.cipherText(), StandardCharsets.UTF_16));
+        log.info("[Encrypted]" + fromUtf16Bytes(encryptResult1.cipherText()));
 
         DecryptResult decryptResult1 = cryptographyClient.decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult1.cipherText());
-        log.info("[Decrypted]" + textToEncrypt + "<===>" + new String(decryptResult1.plainText(), StandardCharsets.UTF_16));
+        log.info("[Decrypted]" + textToEncrypt + "<===>" + fromUtf16Bytes(decryptResult1.plainText()));
 
 
         log.info("---Async---");
@@ -54,11 +62,11 @@ public class App {
         EncryptResult encryptResult2 = cryptographyAsyncClient
                 .encrypt(EncryptionAlgorithm.RSA_OAEP, byteText)
                 .block();
-        log.info("[Encrypted]" + new String(encryptResult2.cipherText(), StandardCharsets.UTF_16));
+        log.info("[Encrypted]" + fromUtf16Bytes(encryptResult2.cipherText()));
 
         DecryptResult decryptResult2 = cryptographyAsyncClient
                 .decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult2.cipherText())
                 .block();
-        log.info("[Decrypted]" + textToEncrypt + "<=======>" + new String(decryptResult2.plainText(), StandardCharsets.UTF_16));
+        log.info("[Decrypted]" + textToEncrypt + "<=======>" + fromUtf16Bytes(decryptResult2.plainText()));
     }
 }
