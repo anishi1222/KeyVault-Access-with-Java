@@ -21,6 +21,7 @@
         <maven.dependency.plugin.version>3.11.0</maven.dependency.plugin.version>
         <maven.resources.plugin.version>3.5.0</maven.resources.plugin.version>
         <maven.jar.plugin.version>3.5.0</maven.jar.plugin.version>
+        <azure.core.http.netty.version>1.16.5</azure.core.http.netty.version>
         <mockito.core.version>5.23.0</mockito.core.version>
         <junit.jupiter.version>6.1.0</junit.jupiter.version>
         <libs.classpath.prefix>libs</libs.classpath.prefix>
@@ -52,6 +53,7 @@
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-core-http-netty</artifactId>
+            <version>${azure.core.http.netty.version}</version>
         </dependency>
 
         <dependency>
