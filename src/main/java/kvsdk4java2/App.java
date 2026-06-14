@@ -1,7 +1,7 @@
 package kvsdk4java2;
 
-import com.azure.identity.credential.ClientSecretCredential;
-import com.azure.identity.credential.ClientSecretCredentialBuilder;
+import com.azure.identity.ClientSecretCredential;
+import com.azure.identity.ClientSecretCredentialBuilder;
 import com.azure.security.keyvault.keys.cryptography.CryptographyAsyncClient;
 import com.azure.security.keyvault.keys.cryptography.CryptographyClient;
 import com.azure.security.keyvault.keys.cryptography.CryptographyClientBuilder;
@@ -38,10 +38,10 @@ public class App {
         log.info("[textToEncrypt]" + textToEncrypt);
         byte[] byteText = textToEncrypt.getBytes(StandardCharsets.UTF_16);
         EncryptResult encryptResult1 = cryptographyClient.encrypt(EncryptionAlgorithm.RSA_OAEP, byteText);
-        log.info("[Encrypted]" + new String(encryptResult1.cipherText(), StandardCharsets.UTF_16));
+        log.info("[Encrypted]" + new String(encryptResult1.getCipherText(), StandardCharsets.UTF_16));
 
-        DecryptResult decryptResult1 = cryptographyClient.decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult1.cipherText());
-        log.info("[Decrypted]" + textToEncrypt + "<===>" + new String(decryptResult1.plainText(), StandardCharsets.UTF_16));
+        DecryptResult decryptResult1 = cryptographyClient.decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult1.getCipherText());
+        log.info("[Decrypted]" + textToEncrypt + "<===>" + new String(decryptResult1.getPlainText(), StandardCharsets.UTF_16));
 
 
         log.info("---Async---");
@@ -54,11 +54,11 @@ public class App {
         EncryptResult encryptResult2 = cryptographyAsyncClient
                 .encrypt(EncryptionAlgorithm.RSA_OAEP, byteText)
                 .block();
-        log.info("[Encrypted]" + new String(encryptResult2.cipherText(), StandardCharsets.UTF_16));
+        log.info("[Encrypted]" + new String(encryptResult2.getCipherText(), StandardCharsets.UTF_16));
 
         DecryptResult decryptResult2 = cryptographyAsyncClient
-                .decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult2.cipherText())
+                .decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult2.getCipherText())
                 .block();
-        log.info("[Decrypted]" + textToEncrypt + "<=======>" + new String(decryptResult2.plainText(), StandardCharsets.UTF_16));
+        log.info("[Decrypted]" + textToEncrypt + "<=======>" + new String(decryptResult2.getPlainText(), StandardCharsets.UTF_16));
     }
 }
