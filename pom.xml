@@ -21,7 +21,10 @@
         <maven.dependency.plugin.version>3.11.0</maven.dependency.plugin.version>
         <maven.resources.plugin.version>3.5.0</maven.resources.plugin.version>
         <maven.jar.plugin.version>3.5.0</maven.jar.plugin.version>
+        <azure.core.version>1.58.1</azure.core.version>
+        <azure.identity.version>1.18.4</azure.identity.version>
         <azure.core.http.netty.version>1.16.5</azure.core.http.netty.version>
+        <msal4j.version>1.25.0</msal4j.version>
         <mockito.core.version>5.23.0</mockito.core.version>
         <junit.jupiter.version>6.1.0</junit.jupiter.version>
         <libs.classpath.prefix>libs</libs.classpath.prefix>
@@ -38,6 +41,26 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-core</artifactId>
+                <version>${azure.core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-identity</artifactId>
+                <version>${azure.identity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-core-http-netty</artifactId>
+                <version>${azure.core.http.netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>msal4j</artifactId>
+                <version>${msal4j.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -48,12 +71,19 @@
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
             <artifactId>azure-identity</artifactId>
         </dependency>
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-core-http-netty</artifactId>
-            <version>${azure.core.http.netty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>msal4j</artifactId>
         </dependency>
 
         <dependency>
