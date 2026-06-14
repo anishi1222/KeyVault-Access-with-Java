@@ -32,3 +32,33 @@ Refer to https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis
 - Java Code
   - Please refer to [Azure Key Vault Key client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-keyvault-keys#azure-key-vault-key-client-library-for-java)
   - This code sample used block() for description purpose. Do not use block() in production code. 
+
+## Secure runtime configuration
+Do not hard-code credentials in source code. Set required values as environment variables before running the app.
+
+```bash
+export AZURE_CLIENT_ID="<your-app-client-id>"
+export AZURE_CLIENT_SECRET="<your-app-client-secret>"
+export AZURE_TENANT_ID="<your-tenant-id>"
+export AZURE_KEY_IDENTIFIER="https://<your-vault>.vault.azure.net/keys/<key-name>/<key-version>"
+```
+
+Then build and run with Maven:
+
+```bash
+mvn clean verify
+java -jar target/keyvaultclient2.jar
+```
+
+## Unit tests (network-free)
+The application entry flow is testable without Azure network access via dependency injection:
+
+- `App.run(EnvReader, CryptoProviderFactory)` accepts injected environment and crypto provider implementations.
+- Unit tests use mocked providers to validate sync and async encrypt/decrypt paths.
+- Async guard behavior is also covered when provider results are null.
+
+Run tests with:
+
+```bash
+mvn test
+```
