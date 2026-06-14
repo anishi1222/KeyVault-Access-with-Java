@@ -1,16 +1,16 @@
 package kvsdk4java2;
 
-import com.azure.identity.credential.ClientSecretCredential;
-import com.azure.identity.credential.ClientSecretCredentialBuilder;
+import java.nio.charset.StandardCharsets;
+import java.util.logging.Logger;
+
+import com.azure.identity.ClientSecretCredential;
+import com.azure.identity.ClientSecretCredentialBuilder;
 import com.azure.security.keyvault.keys.cryptography.CryptographyAsyncClient;
 import com.azure.security.keyvault.keys.cryptography.CryptographyClient;
 import com.azure.security.keyvault.keys.cryptography.CryptographyClientBuilder;
 import com.azure.security.keyvault.keys.cryptography.models.DecryptResult;
 import com.azure.security.keyvault.keys.cryptography.models.EncryptResult;
 import com.azure.security.keyvault.keys.cryptography.models.EncryptionAlgorithm;
-
-import java.nio.charset.StandardCharsets;
-import java.util.logging.Logger;
 
 public class App {
 
@@ -65,7 +65,7 @@ public class App {
         log.info("[Encrypted]" + fromUtf16Bytes(encryptResult2.cipherText()));
 
         DecryptResult decryptResult2 = cryptographyAsyncClient
-                .decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult2.cipherText())
+                .decrypt(EncryptionAlgorithm.RSA_OAEP, encryptResult2.getCipherText())
                 .block();
         log.info("[Decrypted]" + textToEncrypt + "<=======>" + fromUtf16Bytes(decryptResult2.plainText()));
     }
