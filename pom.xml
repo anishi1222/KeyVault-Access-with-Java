@@ -22,7 +22,7 @@
         <maven.dependency.plugin.version>3.11.0</maven.dependency.plugin.version>
         <maven.resources.plugin.version>3.5.0</maven.resources.plugin.version>
         <maven.jar.plugin.version>3.5.0</maven.jar.plugin.version>
-        <azure.core.version>1.58.1</azure.core.version>
+        <azure.core.version>1.59.1</azure.core.version>
         <azure.identity.version>1.18.4</azure.identity.version>
         <azure.core.http.netty.version>1.16.7</azure.core.http.netty.version>
         <msal4j.version>1.25.0</msal4j.version>
